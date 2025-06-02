@@ -36,27 +36,24 @@ public class Main {
 
 
     public static void bartender(String name) {
-        String drink;
-
-        switch (name) {
-            case "Henk":
-                drink = "Bacardi Cola";
-                break;
-            case "Simone":
-                drink = "Gin Tonic";
-                break;
-            case "Barrie":
-                drink = "Moscow Mule";
-                break;
-            default:
+        String drink = switch (name) {
+            case "Henk" -> "Bacardi Cola";
+            case "Simone" -> "Gin Tonic";
+            case "Barrie" -> "Moscow Mule";
+            default -> {
                 System.out.println("This name is unknown. Try Henk, Simone or Barrie.");
-                return;
+                yield null;
+            }
+        };
+        if (drink != null) {
+            System.out.println(name + " wants a " + drink);
         }
-
-        System.out.println(name + " wants a " + drink);
     }
 
     public static void sum(int input1, int input2) {
         System.out.println(input1 + input2);
     }
 }
+
+
+
